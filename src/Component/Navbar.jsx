@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { BiHomeAlt, BiUser, BiCodeAlt, BiMessageDetail } from "react-icons/bi";
-import { MdWorkOutline } from "react-icons/md";
-import { HiOutlineDocumentText } from "react-icons/hi";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { BiHomeAlt, BiUser, BiCodeAlt, BiMessageDetail } from 'react-icons/bi';
+import { MdWorkOutline } from 'react-icons/md';
+import { HiOutlineDocumentText } from 'react-icons/hi';
+import { motion } from 'framer-motion';
 
 const navLinks = [
-  { name: "Home", href: "#home", icon: <BiHomeAlt /> },
-  { name: "About", href: "#about", icon: <BiUser /> },
-  { name: "Skills", href: "#skills", icon: <BiCodeAlt /> },
-  { name: "Projects", href: "#projects", icon: <MdWorkOutline /> },
-  { name: "Contact", href: "#contact", icon: <BiMessageDetail /> },
+  { name: 'Home', href: '#home', icon: <BiHomeAlt /> },
+  { name: 'About', href: '#about', icon: <BiUser /> },
+  { name: 'Skills', href: '#skills', icon: <BiCodeAlt /> },
+  { name: 'Projects', href: '#projects', icon: <MdWorkOutline /> },
+  { name: 'Contact', href: '#contact', icon: <BiMessageDetail /> },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState('home');
 
   // Track scroll to update active link
   useEffect(() => {
@@ -26,15 +26,18 @@ const Navbar = () => {
         const section = document.querySelector(link.href);
         if (section) {
           const { offsetTop, offsetHeight } = section;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActive(link.name.toLowerCase());
           }
         }
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -68,11 +71,11 @@ const Navbar = () => {
           {navLinks.map((item) => (
             <motion.li
               key={item.name}
-              whileHover={{ scale: 1.1, color: "#00D1FF" }}
+              whileHover={{ scale: 1.1, color: '#00D1FF' }}
               className={`flex items-center gap-1 relative cursor-pointer transition-all duration-300 ${
                 active === item.name.toLowerCase()
-                  ? "text-cyan-400 font-semibold"
-                  : "text-gray-300"
+                  ? 'text-cyan-400 font-semibold'
+                  : 'text-gray-300'
               }`}
             >
               <a href={item.href} className="flex items-center gap-1">
@@ -81,7 +84,7 @@ const Navbar = () => {
               </a>
               <span
                 className={`absolute bottom-0 left-0 w-0 h-[2px] bg-purple-500 group-hover:w-full transition-all ${
-                  active === item.name.toLowerCase() ? "w-full" : ""
+                  active === item.name.toLowerCase() ? 'w-full' : ''
                 }`}
               ></span>
             </motion.li>
@@ -90,7 +93,8 @@ const Navbar = () => {
           {/* Resume Button */}
           <li>
             <a
-              href="#resume"
+              href="https://drive.google.com/file/d/1PTTXjZmearazJRenqnydFE7g8TaD85cY/view?usp=sharing"
+              target="_blank"
               className="px-5 py-2 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg hover:scale-105 transition-transform"
             >
               <HiOutlineDocumentText size={18} />
@@ -122,8 +126,8 @@ const Navbar = () => {
                 href={item.href}
                 className={`block text-lg flex items-center gap-2 transition-colors ${
                   active === item.name.toLowerCase()
-                    ? "text-cyan-400 font-semibold"
-                    : "text-gray-300 hover:text-cyan-400"
+                    ? 'text-cyan-400 font-semibold'
+                    : 'text-gray-300 hover:text-cyan-400'
                 }`}
               >
                 {item.icon}
@@ -133,7 +137,9 @@ const Navbar = () => {
           ))}
           <li>
             <a
-              href="#resume"
+              href="https://drive.google.com/file/d/1PTTXjZmearazJRenqnydFE7g8TaD85cY/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block mt-2 px-5 py-2 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold text-center shadow-lg hover:scale-105 transition-transform"
             >
               <HiOutlineDocumentText size={18} />

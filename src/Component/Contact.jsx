@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,9 +15,27 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-    alert("Message sent!");
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          toast.success('Message sent successfully!');
+          setForm({ name: '', email: '', message: '' });
+          setLoading(false);
+        },
+        (error) => {
+          console.error(error);
+          toast.error('Failed to send message. Please try again!');
+          setLoading(false);
+        }
+      );
   };
 
   return (
@@ -22,7 +44,7 @@ const Contact = () => {
       <motion.div
         className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 opacity-20 blur-3xl -z-10 animate-blob"
         animate={{ scale: [1, 1.2, 1], rotate: [0, 360, 0] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <motion.h2
@@ -60,7 +82,7 @@ const Contact = () => {
           <motion.div
             className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-gradient-to-r from-purple-500 to-cyan-400 opacity-30 rounded-full blur-3xl -z-10 animate-blob"
             animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
           />
 
           <input
@@ -89,16 +111,17 @@ const Contact = () => {
             rows={5}
             required
             className="bg-gray-800 text-white px-4 py-3 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none placeholder-gray-400"
-          ></textarea>
+          />
           <button
             type="submit"
-            className="mt-2 bg-gradient-to-r from-purple-500 to-cyan-400 px-6 py-3 rounded-xl font-semibold text-white hover:scale-105 transition-transform shadow-lg"
+            disabled={loading}
+            className="mt-2 bg-gradient-to-r from-purple-500 to-cyan-400 px-6 py-3 rounded-xl font-semibold text-white hover:scale-105 transition-transform shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </motion.form>
 
-        {/* Social Links / Info */}
+        {/* Social Links */}
         <motion.div
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -106,17 +129,17 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="flex-1 relative bg-gray-900/60 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-gray-800 flex flex-col gap-6 justify-center items-center text-center overflow-hidden"
         >
-          {/* Animated Glow */}
           <motion.div
             className="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-gradient-to-r from-green-400 to-teal-400 opacity-30 rounded-full blur-3xl -z-10 animate-blob"
             animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           />
-
-          <h3 className="text-2xl font-bold text-white mb-4">Connect with me</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Connect with me
+          </h3>
           <div className="flex gap-6 text-white text-2xl">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/AshiqurAshik"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-purple-500 transition-colors"
@@ -124,7 +147,7 @@ const Contact = () => {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/ashiqur-rahman-it/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-cyan-400 transition-colors"
@@ -132,12 +155,12 @@ const Contact = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://www.facebook.com/ashik.at.756"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-blue-600 transition-colors"
             >
-              <FaTwitter />
+              <FaFacebook />
             </a>
           </div>
           <p className="text-gray-300 mt-4">
@@ -146,6 +169,9 @@ const Contact = () => {
           </p>
         </motion.div>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );
 };

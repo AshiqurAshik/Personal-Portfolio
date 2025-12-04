@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import {
   SiReact,
   SiNodedotjs,
@@ -9,41 +9,41 @@ import {
   SiExpress,
   SiMongodb,
   SiFirebase,
-} from "react-icons/si";
+} from 'react-icons/si';
 
 const projects = [
   {
-    title: "Book Haven – Online Library (CRUD App)",
+    title: 'Book Haven – Online Library (CRUD App)',
     description:
-      "Book Haven is a full-stack online library where users can browse, add, update, and delete books. It features a responsive UI and clean CRUD functionality.",
-    techPercent: { React: 80, "Node.js": 60, Express: 60, MongoDB: 50 },
-    live: "https://lnkd.in/gk_uDna2",
-    github: "https://lnkd.in/gudhSubX",
-    gradient: "from-purple-500 to-cyan-400",
+      'Book Haven is a full-stack online library where users can browse, add, update, and delete books. It features a responsive UI and clean CRUD functionality.',
+    techPercent: { React: 80, 'Node.js': 60, Express: 60, MongoDB: 50 },
+    live: 'https://book-haven-library.netlify.app/',
+    github: 'https://github.com/AshiqurAshik/The-Book-Haven-client-?tab=readme-ov-file',
+    gradient: 'from-purple-500 to-cyan-400',
   },
   {
-    title: "Green Nest – Plant Store with Firebase Auth",
+    title: 'Green Nest – Plant Store with Firebase Auth',
     description:
-      "Green Nest is a plant store app with secure Firebase authentication, offering a smooth and clean shopping experience with Tailwind CSS styling.",
+      'Green Nest is a plant store app with secure Firebase authentication, offering a smooth and clean shopping experience with Tailwind CSS styling.',
     techPercent: { React: 80, Tailwind: 70, Firebase: 50 },
-    live: "https://lnkd.in/gmfadc3c",
-    github: "https://lnkd.in/gEmXsmWk",
-    gradient: "from-green-400 to-teal-400",
+    live: 'https://green-nest-plant.netlify.app/',
+    github: 'https://github.com/AshiqurAshik/GreenNest-plant-shop',
+    gradient: 'from-green-400 to-teal-400',
   },
   {
-    title: "Gadget Management System",
+    title: 'Gadget Management System',
     description:
-      "Gadget Management System allows users to add, update, view, and delete gadgets in real time. Includes Firebase authentication and responsive UI with Next.js.",
+      'Gadget Management System allows users to add, update, view, and delete gadgets in real time. Includes Firebase authentication and responsive UI with Next.js.',
     techPercent: { NextJS: 70, Tailwind: 60, MongoDB: 50, Firebase: 40 },
-    live: "https://lnkd.in/gBakRY6v",
-    github: "https://lnkd.in/g_fe9q7F",
-    gradient: "from-yellow-400 to-orange-400",
+    live: 'https://gadget-management-system.vercel.app/',
+    github: 'https://github.com/AshiqurAshik/Gadget-Management-System',
+    gradient: 'from-yellow-400 to-orange-400',
   },
 ];
 
 const techIcons = {
   React: <SiReact color="#61DAFB" />,
-  "Node.js": <SiNodedotjs color="#339933" />,
+  'Node.js': <SiNodedotjs color="#339933" />,
   Express: <SiExpress color="#AAAAAA" />,
   MongoDB: <SiMongodb color="#47A248" />,
   Firebase: <SiFirebase color="#FFCA28" />,
@@ -52,13 +52,13 @@ const techIcons = {
 };
 
 const techColors = {
-  React: "#61DAFB",
-  "Node.js": "#339933",
-  Express: "#AAAAAA",
-  MongoDB: "#47A248",
-  Firebase: "#FFCA28",
-  NextJS: "#FFFFFF",
-  Tailwind: "#38BDF8",
+  React: '#61DAFB',
+  'Node.js': '#339933',
+  Express: '#AAAAAA',
+  MongoDB: '#47A248',
+  Firebase: '#FFCA28',
+  NextJS: '#FFFFFF',
+  Tailwind: '#38BDF8',
 };
 
 const Project = () => {
@@ -104,25 +104,27 @@ const Project = () => {
 
             {/* Right Side - Tech Usage */}
             <div className="md:w-2/5 flex flex-col gap-4 mt-6 md:mt-0 md:pl-8">
-              {Object.entries(project.techPercent).map(([tech, percent], index) => (
-                <div key={index}>
-                  <div className="flex justify-between items-center text-white text-sm mb-1">
-                    <span className="flex items-center gap-2">
-                      {techIcons[tech]} {tech}
-                    </span>
-                    <span>{percent}%</span>
+              {Object.entries(project.techPercent).map(
+                ([tech, percent], index) => (
+                  <div key={index}>
+                    <div className="flex justify-between items-center text-white text-sm mb-1">
+                      <span className="flex items-center gap-2">
+                        {techIcons[tech]} {tech}
+                      </span>
+                      <span>{percent}%</span>
+                    </div>
+                    <div className="w-full h-4 bg-gray-800 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full transition-all duration-500"
+                        style={{
+                          width: `${percent}%`,
+                          background: techColors[tech],
+                        }}
+                      ></div>
+                    </div>
                   </div>
-                  <div className="w-full h-4 bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-500"
-                      style={{
-                        width: `${percent}%`,
-                        background: techColors[tech],
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </motion.div>
         ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex gap-6 text-white text-xl">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/AshiqurAshik"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-500 transition-colors"
@@ -26,7 +26,7 @@ const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/ashiqur-rahman-it/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition-colors"
@@ -34,20 +34,19 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://twitter.com/yourusername"
+            href="https://www.facebook.com/ashik.at.756"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400 transition-colors"
+            className="hover:text-blue-600 transition-colors"
           >
-            <FaTwitter />
+            <FaFacebook />
           </a>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="border-t border-gray-800 mt-6 py-4 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} MD Ashiqur Rahman. All rights
-        reserved.
+        &copy; {new Date().getFullYear()} MD Ashiqur Rahman. All rights reserved.
       </div>
     </footer>
   );
