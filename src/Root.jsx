@@ -6,6 +6,7 @@ import Skills from './Component/Skills';
 import Project from './Component/Project';
 import Contact from './Component/Contact';
 import Footer from './Component/Footer';
+import Education from './Component/Education';
 
 const Root = () => {
   return (
@@ -13,6 +14,7 @@ const Root = () => {
       <Navbar></Navbar>
       <Home></Home>
       <About></About>
+      <Education></Education>
       <Skills></Skills>
       <Project></Project>
       <Contact></Contact>

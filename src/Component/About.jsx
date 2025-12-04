@@ -12,7 +12,7 @@ const About = () => {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }} // triggers when 30% of the image is visible
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
         className="w-full md:w-2/5 flex justify-center"
       >
@@ -27,7 +27,7 @@ const About = () => {
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }} // triggers when 30% of the text is visible
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
         className="w-full md:w-3/5"
       >
@@ -35,10 +35,13 @@ const About = () => {
           About Me
         </h2>
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-          I am a passionate MERN stack developer with a love for building
-          interactive and responsive front-end experiences. I enjoy crafting
-          clean, efficient code while continuously learning new technologies
-          and improving my skills.
+          I’m MD Ashiqur Rahman, a MERN stack developer passionate about crafting
+          modern, interactive web applications. I love turning ideas into
+          clean, efficient code while exploring new technologies. Problem-solving
+          and creative challenges excite me the most. Outside of coding, I enjoy
+          reading, exploring tech trends, and indulging in hobbies that inspire
+          creativity. Always curious, I aim to grow and make an impact through
+          my work.
         </p>
       </motion.div>
     </section>

@@ -3,11 +3,13 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import { BiHomeAlt, BiUser, BiCodeAlt, BiMessageDetail } from 'react-icons/bi';
 import { MdWorkOutline } from 'react-icons/md';
 import { HiOutlineDocumentText } from 'react-icons/hi';
+import { FaGraduationCap } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const navLinks = [
   { name: 'Home', href: '#home', icon: <BiHomeAlt /> },
   { name: 'About', href: '#about', icon: <BiUser /> },
+  { name: 'Education', href: '#education', icon: <FaGraduationCap /> },
   { name: 'Skills', href: '#skills', icon: <BiCodeAlt /> },
   { name: 'Projects', href: '#projects', icon: <MdWorkOutline /> },
   { name: 'Contact', href: '#contact', icon: <BiMessageDetail /> },
@@ -17,11 +19,9 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('home');
 
-  // Track scroll to update active link
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-
       navLinks.forEach((link) => {
         const section = document.querySelector(link.href);
         if (section) {
@@ -82,19 +82,14 @@ const Navbar = () => {
                 {item.icon}
                 {item.name}
               </a>
-              <span
-                className={`absolute bottom-0 left-0 w-0 h-[2px] bg-purple-500 group-hover:w-full transition-all ${
-                  active === item.name.toLowerCase() ? 'w-full' : ''
-                }`}
-              ></span>
             </motion.li>
           ))}
 
           {/* Resume Button */}
           <li>
             <a
-              href="https://drive.google.com/file/d/1PTTXjZmearazJRenqnydFE7g8TaD85cY/view?usp=sharing"
-              target="_blank"
+              href="/Resume of MD Ashiqur Rahman - Google Docs.pdf"
+              download
               className="px-5 py-2 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg hover:scale-105 transition-transform"
             >
               <HiOutlineDocumentText size={18} />
@@ -135,11 +130,11 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+
           <li>
             <a
-              href="https://drive.google.com/file/d/1PTTXjZmearazJRenqnydFE7g8TaD85cY/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/Resume of MD Ashiqur Rahman - Google Docs.pdf"
+              download
               className="block mt-2 px-5 py-2 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold text-center shadow-lg hover:scale-105 transition-transform"
             >
               <HiOutlineDocumentText size={18} />
