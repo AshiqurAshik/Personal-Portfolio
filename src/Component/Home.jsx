@@ -52,9 +52,9 @@ const Home = () => {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
           <a
-            href="https://drive.google.com/file/d/1PTTXjZmearazJRenqnydFE7g8TaD85cY/view?usp=sharing"
-            target="_blank"
-            className="px-6 py-3 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+            href="/Resume of MD Ashiqur Rahman - Google Docs.pdf"
+            download
+            className="px-5 py-2 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg hover:scale-105 transition-transform"
           >
             View Resume
           </a>
