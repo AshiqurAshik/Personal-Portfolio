@@ -80,7 +80,7 @@ const Home = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              href="/resume.pdf"
+              href="/Resume of MD Ashiqur Rahman - Google Docs.pdf"
               download="Resume of MD Ashiqur Rahman - Google Docs.pdf"
               className="px-6 py-3 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg transition-all"
             >

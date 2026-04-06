@@ -30,7 +30,7 @@ const Navbar = () => {
   // ✅ Added download handler
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/Resume of MD Ashiqur Rahman - Google Docs.pdf';
     link.download = 'Resume of MD Ashiqur Rahman - Google Docs.pdf';
     document.body.appendChild(link);
     link.click();
