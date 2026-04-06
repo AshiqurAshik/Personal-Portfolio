@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, MousePointer2 } from 'lucide-react';
-import profileImage from '../assets/myImage.png'
+import profileImage from '../assets/myImage.png';
 
 const Home = () => {
-
   // Array for the typing effect
-  const words = ['Front-end Developer', 'MERN Full-stack Developer', 'Web Developer'];
+  const words = [
+    'Front-end Developer',
+    'MERN Full-stack Developer',
+    'Web Developer',
+  ];
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
@@ -22,9 +25,12 @@ const Home = () => {
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, Math.max(reverse ? 50 : 100, parseInt(Math.random() * 150)));
+    const timeout = setTimeout(
+      () => {
+        setSubIndex((prev) => prev + (reverse ? -1 : 1));
+      },
+      Math.max(reverse ? 50 : 100, parseInt(Math.random() * 150)),
+    );
 
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse]);
@@ -41,7 +47,6 @@ const Home = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 w-full grid md:grid-cols-2 gap-16 items-center">
-        
         {/* Text Content */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -75,7 +80,8 @@ const Home = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              href="#"
+              href="/resume.pdf"
+              download="Resume of MD Ashiqur Rahman - Google Docs.pdf"
               className="px-6 py-3 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg text-white font-semibold shadow-lg transition-all"
             >
               <FileText size={18} />
@@ -101,15 +107,15 @@ const Home = () => {
         >
           <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
             {/* Animated Rings */}
-            <motion.div 
+            <motion.div
               className="absolute inset-0 border-2 border-dashed border-cyan-500/20 rounded-full"
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             />
-            <motion.div 
+            <motion.div
               className="absolute inset-[-20px] border border-purple-500/10 rounded-full"
               animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
             />
 
             {/* Glowing Backdrop */}
@@ -119,26 +125,24 @@ const Home = () => {
             <div className="relative z-10 w-full h-full">
               <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative group">
                 <img
-                  src={profileImage} 
+                  src={profileImage}
                   alt="MD Ashiqur Rahman"
                   className="w-full h-full object-cover object-top grayscale-[0.1] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
-                
+
                 {/* Subtle Overlay to blend with dark theme */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-40" />
-                
+
                 {/* Floating Tech Badge */}
-                <motion.div 
+                <motion.div
                   className="absolute bottom-10 right-10 p-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
-                >
-                </motion.div>
+                ></motion.div>
               </div>
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
